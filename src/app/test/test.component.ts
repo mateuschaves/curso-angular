@@ -7,7 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  @Input() public parentData;
+  public name = 'Codevolution';
+  public message = 'Welcome to Codevolution';
+  public person = {
+      'firstName': 'Jhon',
+      'lasName': 'Doe'
+  }
+  public date = new Date();
   
   constructor() { }
 
