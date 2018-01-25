@@ -1,3 +1,4 @@
+import { ServiceService } from './../service.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -13,11 +14,17 @@ export class TestComponent implements OnInit {
       'firstName': 'Jhon',
       'lasName': 'Doe'
   }
+
+
+
   public date = new Date();
+
+  public data = [];
   
-  constructor() { }
+  constructor(private service: ServiceService) { }
 
   ngOnInit() {
+      this.data = this.service.getData();
   }
 
 }
