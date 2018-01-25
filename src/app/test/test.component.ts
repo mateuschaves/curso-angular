@@ -20,12 +20,14 @@ export class TestComponent implements OnInit {
   public date = new Date();
 
   public data = [];
+  public errorMsg;
   
   constructor(private service: ServiceService) { }
 
   ngOnInit() {
       this.service.getData()
-      .subscribe(data => this.data = data);
+      .subscribe(data => this.data = data,
+                 error => this.errorMsg = error);
 
       console.log(this.data);
   }
