@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { IData }  from './data';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ServiceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  public url = 'https://jsonplaceholder.typicode.com/posts';
 
 
-  getData()
+  getData(): Observable<IData[]>
   {
-    return [
-      {"id": 1, "name": "Mateus", "age": 19},
-      {"id": 2, "name": "Sei não", "age": 29},
-      {"id": 3, "name": "Vrau", "age": 14},
-      {"id": 4, "name": "Eita", "age": 59},
-      {"id": 5, "name": "Q  ? ", "age": 89},
-    ];
+      return this.http.get<IData[]>(this.url);
   }
 
 }
